@@ -82,9 +82,9 @@ class Dashboard extends React.Component{
                     <img src={scheduleBelow} />
                   </div>
                   <div className="filter-button-group">
-                    <div className="fiter-btn-active">Gross Yield<span className="filter-addon"><img src={arrowDownWhite} /></span></div>
-                    <div className="fiter-btn">Number sales<span className="filter-addon"><img src={arrowDownBlack} /></span></div>
-                    <div className="fiter-btn">Gross Yield<span className="filter-addon"><img src={arrowDownBlack} /></span></div>
+                    <div className="filter-btn-active">Gross Yield<span className="filter-addon"><img src={arrowDownWhite} /></span></div>
+                    <div className="filter-btn">Number sales<span className="filter-addon"><img src={arrowDownBlack} /></span></div>
+                    <div className="filter-btn">Gross Yield<span className="filter-addon"><img src={arrowDownBlack} /></span></div>
                   </div>
                 </Col>
                 <Col md="5">
@@ -233,7 +233,7 @@ class Dashboard extends React.Component{
                         {dropdownControlled}
                       </TabPane>
                     </TabContent>
-                    <div className="fiter-btn-active"><span className="crop-icon"><Icon.Crop size={20}/></span>Select location</div>
+                    <div className="filter-btn-active"><span className="crop-icon"><Icon.Crop size={20}/></span>Select location</div>
                   </Col>
                 </Row>
                 <div className="m-t-32"></div>

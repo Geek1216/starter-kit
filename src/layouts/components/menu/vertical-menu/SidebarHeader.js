@@ -15,14 +15,9 @@ class SidebarHeader extends Component {
     return (
       <div className="navbar-header">
         <ul className="nav navbar-nav flex-row">
-          <li className="nav-item mr-auto">
-            <NavLink to="/" className="navbar-brand">
-              <div className="brand-logo" />
-              <h2 className="brand-text mb-0">HARPOON</h2>
-            </NavLink>
-          </li>
-          {/* <li className="nav-item nav-toggle">
+        <li className="nav-item nav-toggle">
             <div className="nav-link modern-nav-toggle">
+              <div></div>
               {collapsed === false ? (
                 <Disc
                   onClick={() => {
@@ -79,7 +74,13 @@ class SidebarHeader extends Component {
                 size={20}
               />
             </div>
-          </li> */}
+          </li>
+          <li className="nav-item mr-auto">
+            <NavLink to="/" className="navbar-brand">
+              <div className="brand-logo" />
+              <h2 className="brand-text mb-0">HARPOON</h2>
+            </NavLink>
+          </li>
         </ul>
         <div
           className={classnames("shadow-bottom", {
