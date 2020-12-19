@@ -184,9 +184,9 @@ class SideMenuContent extends React.Component {
             }}
             target={item.newTab ? "_blank" : undefined}
           >
-            <div className="menu-text">
-              {item.icon}
-              <span className="menu-item menu-title">{item.title}</span>
+            <div className="menu-text custom-text text-big">
+              <div className="icon-container">{item.icon}</div>
+              <div className="menu-item menu-title">{item.title}</div>
             </div>
 
             {item.badge ? (

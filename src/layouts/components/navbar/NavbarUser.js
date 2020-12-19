@@ -76,7 +76,15 @@ class NavbarUser extends React.PureComponent {
     return (
       <ul className="nav navbar-nav navbar-nav-user float-right">
 
-        <NavItem className="nav-search" onClick={this.handleNavbarSearch}>
+        <div className="custom-nav-search">
+          <div className="nav-search-input">
+            <input />
+          </div>
+          <div className="nav-search-addon">
+            <Icon.Search size={21} data-tour="search" />
+          </div>
+        </div>
+        {/* <NavItem className="nav-search" onClick={this.handleNavbarSearch}>
           <NavLink className="nav-link-search">
             <Icon.Search size={21} data-tour="search" />
           </NavLink>
@@ -201,16 +209,16 @@ class NavbarUser extends React.PureComponent {
               />
             </div>
           </div>
-        </NavItem>
+        </NavItem> */}
         <UncontrolledDropdown
           tag="li"
           className="dropdown-notification nav-item"
         >
           <DropdownToggle tag="a" className="nav-link nav-link-label">
-            <Icon.Bell size={21} />
+            <Icon.Bell size={21} fill={true} />
             <Badge pill color="primary" className="badge-up">
               {" "}
-              5{" "}
+              <div className="badge-number"></div>{" "}
             </Badge>
           </DropdownToggle>
           <DropdownMenu tag="ul" right className="dropdown-menu-media">

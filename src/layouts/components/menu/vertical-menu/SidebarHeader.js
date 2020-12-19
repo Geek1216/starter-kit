@@ -21,7 +21,7 @@ class SidebarHeader extends Component {
               <h2 className="brand-text mb-0">HARPOON</h2>
             </NavLink>
           </li>
-          <li className="nav-item nav-toggle">
+          {/* <li className="nav-item nav-toggle">
             <div className="nav-link modern-nav-toggle">
               {collapsed === false ? (
                 <Disc
@@ -79,7 +79,7 @@ class SidebarHeader extends Component {
                 size={20}
               />
             </div>
-          </li>
+          </li> */}
         </ul>
         <div
           className={classnames("shadow-bottom", {

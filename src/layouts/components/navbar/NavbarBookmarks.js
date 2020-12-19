@@ -192,7 +192,7 @@ class NavbarBookmarks extends React.PureComponent {
             className="nav-item d-none d-lg-block"
             onClick={this.handleBookmarksVisibility}>
             <Link to="/">
-              <b className="">Your Dashboard</b>
+              <div className="nav-brand">Your Dashboard</div>
             </Link>
             <div
               className={classnames("bookmark-input search-input", {

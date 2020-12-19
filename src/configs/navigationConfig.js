@@ -13,7 +13,7 @@ const navigationConfig = [
     id: "search",
     title: "Search map",
     type: "item",
-    icon: <Icon.File size={20} />,
+    icon: <Icon.MapPin size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/search"
   },
@@ -21,7 +21,7 @@ const navigationConfig = [
     id: "report",
     title: "Print report",
     type: "item",
-    icon: <Icon.Home size={20} />,
+    icon: <Icon.Printer size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/report"
   },
@@ -37,7 +37,7 @@ const navigationConfig = [
     id: "hire",
     title: "Hire an expert",
     type: "item",
-    icon: <Icon.Home size={20} />,
+    icon: <Icon.Search size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/hire"
   },
@@ -45,7 +45,7 @@ const navigationConfig = [
     id: "setting",
     title: "Setting",
     type: "item",
-    icon: <Icon.Home size={20} />,
+    icon: <Icon.Sliders size={20} style={{'transform': 'rotate(-90deg)'}} />,
     permissions: ["admin", "editor"],
     navLink: "/setting"
   }

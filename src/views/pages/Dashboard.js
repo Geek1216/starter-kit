@@ -9,6 +9,7 @@ import {
 } from "reactstrap"
 import { Eye, Code, ChevronDown } from "react-feather"
 import { dropdownControlled } from "../../components/reactstrap/dropdowns/DropdownsSourceCode"
+import * as Icon from "react-feather"
 
 import goThere from "../../assets/img/custom/gothere.png"
 import redDown from "../../assets/img/custom/red-down.png"
@@ -232,7 +233,7 @@ class Dashboard extends React.Component{
                         {dropdownControlled}
                       </TabPane>
                     </TabContent>
-                    <div className="fiter-btn-active">Select location</div>
+                    <div className="fiter-btn-active"><span className="crop-icon"><Icon.Crop size={20}/></span>Select location</div>
                   </Col>
                 </Row>
                 <div className="m-t-32"></div>
