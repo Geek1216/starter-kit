@@ -10,6 +10,10 @@ import {
 import { Eye, Code, ChevronDown } from "react-feather"
 import { dropdownControlled } from "../../components/reactstrap/dropdowns/DropdownsSourceCode"
 import * as Icon from "react-feather"
+import ApexAreaCharts from './charts/ApexAreaChart'
+import ApexRadialCharts from './charts/ApexRadialChart'
+import ApexDonutCharts from './charts/ApexDonutChart'
+import Spreadsheet from "react-spreadsheet";
 
 import goThere from "../../assets/img/custom/gothere.png"
 import redDown from "../../assets/img/custom/red-down.png"
@@ -46,6 +50,43 @@ let $primary = "#7367F0",
 
 let themeColors = [$primary, $success, $warning]
 
+const RangeView = ({ cell, getValue }) => (
+  <input
+    type="range"
+    value={getValue({ data: cell })}
+    disabled
+    style={{ pointerEvents: "none" }}
+  />
+);
+ 
+const RangeEdit = ({ getValue, cell, onChange }) => (
+  <input
+    type="range"
+    onChange={(e) => {
+      onChange({ ...cell, value: e.target.value });
+    }}
+    value={getValue({ data: cell }) || 0}
+    autoFocus
+  />
+);
+ 
+const data = [
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
+  [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }]
+];
+
 class Dashboard extends React.Component{
   state = {
     activeTab: "1",
@@ -76,10 +117,7 @@ class Dashboard extends React.Component{
               <Row className="custom-card">
                 <Col md="7">
                   <div className="area-chart">
-                    <img src={schedule} />
-                  </div>
-                  <div className="area-chart-below">
-                    <img src={scheduleBelow} />
+                    <ApexAreaCharts />
                   </div>
                   <div className="filter-button-group">
                     <div className="filter-btn-active">Gross Yield<span className="filter-addon"><img src={arrowDownWhite} /></span></div>
@@ -89,7 +127,7 @@ class Dashboard extends React.Component{
                 </Col>
                 <Col md="5">
                   <div className="circle-chart">
-                    {/* chart component */}
+                    <ApexRadialCharts />
                   </div>
                   <div className="price-index-description">
                     <div className="desc-title">
@@ -203,7 +241,8 @@ class Dashboard extends React.Component{
                     <div className="custom-text text-normal">"Carlton" House Price Index</div>
                     <div className="m-t-8"></div>
                     <div className="area-chart">
-                      <img src={schedule} />
+                      {/* <img src={schedule} /> */}
+                      <ApexAreaCharts />
                     </div>
                   </Col>
                   <Col md="5" style={{'position': 'relative'}}>
@@ -242,7 +281,8 @@ class Dashboard extends React.Component{
                     <div className="custom-text text-bold text-normal">Demand</div>
                     <div className="m-t-16"></div>
                     <div className="dounat-chart">
-                      <img src={dounat} />
+                      {/* <img src={dounat} /> */}
+                      <ApexDonutCharts />
                     </div>
                     <div className="custom-text text-bold text-normal op-6">Carlton Demand By House Type</div>
                   </Col>
@@ -325,7 +365,8 @@ class Dashboard extends React.Component{
               <Row className="custom-card">
                 <Col md="9">
                   <div className="m-t-40"></div>
-                  <span><img src={demandChartLabel} /></span><img src={demandChart} className="demand-chart" />
+                  {/* <span><img src={demandChartLabel} /></span><img src={demandChart} className="demand-chart" /> */}
+                  <ApexAreaCharts />
                   <Row>
                     <Col sm="4">
                       <TabContent activeTab={this.state.activeTab}>
@@ -423,12 +464,14 @@ class Dashboard extends React.Component{
             </div>
             <Card className="card-block cash-flow">
               <div className="custom-card">
-                <img src={cashFlowTable} className="cashFlowTable" />
+                {/* <img src={cashFlowTable} className="cashFlowTable" /> */}
+                <Spreadsheet style={{'width': '100%'}} data={data} />
                 <div className="m-t-16"></div>
                 <div className="m-t-8"></div>
                 <div className="cash-description">
                   <div className="circle-chart">
                     {/* chart component */}
+                    <ApexRadialCharts />
                   </div>
                   <div className="cash-desc-content custom-text text-normal">
                     % of Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

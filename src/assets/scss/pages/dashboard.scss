@@ -33,6 +33,27 @@ body {
     margin-bottom: 16px;
 }
 
+.location-analyser {
+    .filter-btn-active {
+        background: linear-gradient(140.55deg, #17DEDE 8%, #69EBEC 89.66%);
+        box-shadow: 4px 4px 8px rgba(202, 206, 220, 0.62), -4px -4px 8px #FFFFFF;
+        border-radius: 5px;
+        text-align: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 8px;
+        color: #FFFFFF;
+        position: absolute;
+        bottom: 0;
+    
+        .filter-addon {
+            margin-left: 12px;
+        }
+    }
+}
+
 .card-block {
     min-height: 150px;
     border: 0.5px solid rgba(202, 206, 220, 0.15) !important;
@@ -412,7 +433,7 @@ body {
 
     .circle-chart {
         margin: 0;
-        width: 140px;
+        width: 100px;
         margin-right: 20px;
         margin-left: 20px;
     }   
@@ -466,6 +487,13 @@ body {
         img {
             margin-right: 20px;
         }
+    }
+}
+
+.Spreadsheet {
+    width: 95%;
+    table {
+        width: 100%;
     }
 }
 
@@ -538,4 +566,10 @@ body {
 
 .blue:hover {
     cursor: pointer;
+}
+
+
+// this is chart css
+.apexcharts-toolbar {
+    display: none !important;
 }
