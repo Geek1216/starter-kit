@@ -1,5 +1,5 @@
 import React from "react"
-import { 
+import {
   Row, Col, Card, ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -7,6 +7,7 @@ import {
   TabContent,
   TabPane
 } from "reactstrap"
+import Switch from 'react-switch'
 import { Eye, Code, ChevronDown } from "react-feather"
 import { dropdownControlled } from "../../components/reactstrap/dropdowns/DropdownsSourceCode"
 import * as Icon from "react-feather"
@@ -58,7 +59,7 @@ const RangeView = ({ cell, getValue }) => (
     style={{ pointerEvents: "none" }}
   />
 );
- 
+
 const RangeEdit = ({ getValue, cell, onChange }) => (
   <input
     type="range"
@@ -69,7 +70,7 @@ const RangeEdit = ({ getValue, cell, onChange }) => (
     autoFocus
   />
 );
- 
+
 const data = [
   [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
   [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }],
@@ -87,12 +88,18 @@ const data = [
   [{ value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }, { value: "Flavors" }]
 ];
 
-class Dashboard extends React.Component{
+class Dashboard extends React.Component {
   state = {
     activeTab: "1",
-    dropdownOpen: false
+    dropdownOpen: false,
+    checked: false
   }
-  
+  handleChange = () => {
+    if (this.state.checked)
+      this.setState({ checked: false })
+    else
+      this.setState({ checked: true })
+  }
   toggleTab = tab => {
     if (this.state.activeTab !== tab) {
       this.setState({ activeTab: tab })
@@ -101,11 +108,11 @@ class Dashboard extends React.Component{
 
   toggleDropdown = () => {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpen: !this.state.dropdownOpen,
     })
   }
-  
-  render(){
+
+  render() {
     return (
       <React.Fragment>
         <Row className="match-height">
@@ -182,7 +189,51 @@ class Dashboard extends React.Component{
               <div className="email-notification-title">
                 Email notification
                 <span className="email-notification-switch">
-                  <img src={emailNotificationToggle} />
+                  <Switch
+                    checked={this.state.checked}
+                    onChange={this.handleChange}
+                    handleDiameter={22}
+                    offColor="#17dede"
+                    onColor="#17dede"
+                    offHandleColor="#F1F3F6"
+                    onHandleColor="#F1F3F6"
+                    height={30}
+                    width={55}
+                    id="small-radius-switch"
+                    boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                    activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                    uncheckedIcon={
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: "100%",
+                          fontSize: 12,
+                          color: "#f1f3f6",
+                          paddingRight: 2
+                        }}
+                      >
+                        OFF
+                      </div>
+                    }
+                      checkedIcon={
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            height: "100%",
+                            fontSize: 12,
+                            color: "#f1f3f6",
+                            paddingRight: 2
+                          }}
+                        >
+                          ON
+                        </div>
+                      }
+                  />
+
                 </span>
               </div>
               <div className="image-card">
@@ -215,7 +266,7 @@ class Dashboard extends React.Component{
                   </div>
                   <div className="m-t-8"></div>
                   <div className="custom-text text-small">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   </div>
                 </div>
               </div>
@@ -245,7 +296,7 @@ class Dashboard extends React.Component{
                       <ApexAreaCharts />
                     </div>
                   </Col>
-                  <Col md="5" style={{'position': 'relative'}}>
+                  <Col md="5" style={{ 'position': 'relative' }}>
                     <div className="m-t-40"></div>
                     <div className="m-t-16"></div>
                     <TabContent activeTab={this.state.activeTab}>
@@ -272,7 +323,7 @@ class Dashboard extends React.Component{
                         {dropdownControlled}
                       </TabPane>
                     </TabContent>
-                    <div className="filter-btn-active"><span className="crop-icon"><Icon.Crop size={20}/></span>Select location</div>
+                    <div className="filter-btn-active"><span className="crop-icon"><Icon.Crop size={20} /></span>Select location</div>
                   </Col>
                 </Row>
                 <div className="m-t-32"></div>
@@ -313,7 +364,7 @@ class Dashboard extends React.Component{
             </div>
             <div className="image-card">
               <div className="image-card-left">
-                <img src={building1} className="building1" /> 
+                <img src={building1} className="building1" />
               </div>
               <div className="image-card-right post-description">
                 <div className="m-t-16"></div>
@@ -335,7 +386,7 @@ class Dashboard extends React.Component{
             </div>
             <div className="image-card">
               <div className="image-card-left">
-                <img src={location} /> 
+                <img src={location} />
               </div>
               <div className="image-card-right hotspot-description">
                 <div className="m-t-16"></div>
@@ -350,7 +401,7 @@ class Dashboard extends React.Component{
         </Row>
         <div className="m-t-32"></div>
         <Card className="card-block">
-        <div className="m-t-40"></div>
+          <div className="m-t-40"></div>
           <div className="custom-text text-normal text-center"> Did you know Harpoon is a carbon neutral business?</div>
           <div className="m-t-16"></div>
           <div className="custom-text text-normal text-center">Read <span className="blue">this</span> to find out how we achieve this</div>
@@ -440,7 +491,7 @@ class Dashboard extends React.Component{
                     <div className="m-t-8"></div>
                     <div className="custom-text text-normal text-small"><span className="addon-prev"><img src={greenRect} /></span>% Unoccupied buildings</div>
                     <div className="m-t-8"></div>
-                    <di className="custom-text text-normal text-small"v><span className="addon-prev"><img src={blueRect} /></span> Sales by type</di>
+                    <di className="custom-text text-normal text-small" v><span className="addon-prev"><img src={blueRect} /></span> Sales by type</di>
                     <div className="m-t-8"></div>
                     <div className="custom-text text-normal text-small"><span className="addon-prev"><img src={purple1Rect} /></span> Number of house by type</div>
                   </div>
@@ -449,8 +500,8 @@ class Dashboard extends React.Component{
                   <img src={goThere} />
                 </div>
                 <div className="m-t-16"></div>
-                
-                <div className="custom-text text-normal text-small"> 
+
+                <div className="custom-text text-normal text-small">
                   <div className="m-t-32"></div>
                   NORTH MELBOURNE has a <span className="blue">Growing</span> demand for 2 bed apartments. Strong growth over the last Year and an increase of 1.5% in Transactions
                   <div className="m-t-16"></div>
@@ -465,7 +516,7 @@ class Dashboard extends React.Component{
             <Card className="card-block cash-flow">
               <div className="custom-card">
                 {/* <img src={cashFlowTable} className="cashFlowTable" /> */}
-                <Spreadsheet style={{'width': '100%'}} data={data} />
+                <Spreadsheet style={{ 'width': '100%' }} data={data} />
                 <div className="m-t-16"></div>
                 <div className="m-t-8"></div>
                 <div className="cash-description">
@@ -501,7 +552,7 @@ class Dashboard extends React.Component{
             </div>
             <div className="image-card students">
               <div className="image-card-left">
-                <img src={students} />  
+                <img src={students} />
               </div>
               <div className="image-card-right">
                 <div className="m-t-16"></div>
@@ -510,7 +561,7 @@ class Dashboard extends React.Component{
                 <div className="custom-text text-small-title text-bold">Sub heading</div>
                 <div className="m-t-16"></div>
                 <div className="custom-text text-small">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
                 </div>
                 <div className="m-t-32"></div>
                 <div className="readmore-btn">READ MORE</div>
@@ -554,7 +605,7 @@ class Dashboard extends React.Component{
               </div>
             </Card>
           </Col>
-        </Row>        
+        </Row>
         <div className="m-t-40"></div>
       </React.Fragment>
     )

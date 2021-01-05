@@ -13,32 +13,57 @@ class ApexRadialCharts extends React.Component {
               fontSize: "12px"
             },
             value: {
-              fontSize: "12px"
-            },
-            total: {
-              show: true,
-              formatter: function(w) {
-                return 249
-              }
+              color: "#162548",
+              offsetX: +10,
+              offsetY: -10,
+              fontSize: "14px",
+              font: "bold",
+            },            
+          },
+          track: {
+            dropShadow: {
+              enabled: true,
+              top: 2,
+              left: 0,
+              blur: 4,
+              opacity: 0.15
             }
           }
         }
       },
-      labels: ["Bananas"]
+
+      labels: [""],
+      fill: {
+        colors: ["#69ebec"],
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "horizontal",
+          shadeIntensity: 0.5,
+          gradientToColors: ["#69EBEC"],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      stroke: {
+        lineCap: "sharp"
+      },
     },
-    series: [67]
+    series: [35.4]
   }
 
   render() {
     return (
-        <Chart
+      <Chart
         options={this.state.options}
         series={this.state.series}
         type="radialBar"
         width={150}
         height={150}
-        style={{marginLeft: '-26px', marginTop: '-13px'}}
-        />
+        style={{ marginLeft: '-26px', marginTop: '-13px' }}
+      />
     )
   }
 }

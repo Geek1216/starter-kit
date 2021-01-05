@@ -10,7 +10,7 @@ import {
 import { Eye, Code, ChevronDown } from "react-feather"
 import { dropdownControlled } from "../../components/reactstrap/dropdowns/DropdownsSourceCode"
 import * as Icon from "react-feather"
-
+import SimpleMap from "./Maps"
 import map from "../../assets/img/custom/map.png"
 import goThere from "../../assets/img/custom/gothere.png"
 import redDown from "../../assets/img/custom/red-down.png"
@@ -74,7 +74,7 @@ class Search extends React.Component{
         <div className="m-t-32"></div>
         <div className="custom-card map-container">
           <div>
-            <img src={map} />          
+            <SimpleMap />         
           </div>
           <div className="map-line">
             <div className="custom-text text-normal text-bold">
