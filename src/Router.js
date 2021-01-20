@@ -22,6 +22,10 @@ const Share = lazy(() =>
   import("./views/pages/Share")
 )
 
+const Scheduler = lazy(() =>
+  import("./views/pages/MyScheduler")
+)
+
 const Hire = lazy(() =>
   import("./views/pages/Hire")
 )
@@ -52,15 +56,15 @@ const RouteConfig = ({
               fullLayout === true
                 ? context.fullLayout
                 : context.state.activeLayout === "horizontal"
-                ? context.horizontalLayout
-                : context.VerticalLayout
-              return (
-                <LayoutTag {...props} permission={props.user}>
-                  <Suspense fallback={<Spinner />}>
-                    <Component {...props} />
-                  </Suspense>
-                </LayoutTag>
-              )
+                  ? context.horizontalLayout
+                  : context.VerticalLayout
+            return (
+              <LayoutTag {...props} permission={props.user}>
+                <Suspense fallback={<Spinner />}>
+                  <Component {...props} />
+                </Suspense>
+              </LayoutTag>
+            )
           }}
         </ContextLayout.Consumer>
       )
@@ -97,6 +101,10 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/share"
             component={Share}
+          />
+          <AppRoute
+            path="/scheduler"
+            component={Scheduler}
           />
           <AppRoute
             path="/hire"

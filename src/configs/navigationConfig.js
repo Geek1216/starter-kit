@@ -5,7 +5,7 @@ const navigationConfig = [
     id: "dashboard",
     title: "Dashboard",
     type: "item",
-    icon: <Icon.Home size={20}/>,
+    icon: <Icon.Home size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/"
   },
@@ -34,6 +34,14 @@ const navigationConfig = [
     navLink: "/share"
   },
   {
+    id: "scheduler",
+    title: "Scheduler",
+    type: "item",
+    icon: <Icon.Home size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/scheduler"
+  },
+  {
     id: "hire",
     title: "Hire an expert",
     type: "item",
@@ -45,7 +53,7 @@ const navigationConfig = [
     id: "setting",
     title: "Setting",
     type: "item",
-    icon: <Icon.Sliders size={20} style={{'transform': 'rotate(-90deg)'}} />,
+    icon: <Icon.Sliders size={20} style={{ 'transform': 'rotate(-90deg)' }} />,
     permissions: ["admin", "editor"],
     navLink: "/setting"
   }
